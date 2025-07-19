@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎰 GANAMOS Casino - ¡Tu suerte te espera!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        /* Banner Image */
+        .banner-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background: url('banner-casino.jpg') center/cover no-repeat;
+            background-color: #ff6b6b;
+            border-radius: 15px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-image::before {
+            content: '🎰 CASINO BANNER 🎰';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: #ff6b6b;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .promo1 { background-image: url('promo1.jpg'); }
+        .promo2 { background-image: url('promo2.jpg'); }
+        .juego1 { background-image: url('juego1.jpg'); }
+        .juego2 { background-image: url('juego2.jpg'); }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            background: linear-gradient(45deg, #128C7E, #25D366);
+        }
+
+        .whatsapp-btn::before {
+            content: '📱';
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .banner-image {
+                height: 200px;
+                margin: 1rem auto;
+            }
+
+            .banner-image::before {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .banner-image::before {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="fade-in">
+            <h1>🎰 GANAMOS CASINO 🎰</h1>
+            <p class="subtitle">¡La suerte está de tu lado! Juega y gana grandes premios</p>
+        </header>
+
+        <!-- Banner Image -->
+        <div class="banner-image fade-in"></div>
+
+        <!-- Promociones Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">🎉 Promociones Especiales 🎉</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image promo1">
+                        <span style="background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
+                            🎁 PROMOCIÓN 1 🎁
+                        </span>
+                    </div>
+                    <h3 class="card-title">Bono de Bienvenida 100%</h3>
+                    <p class="card-description">
+                        ¡Duplica tu primer depósito! Obtén un 100% de bono hasta $500.000 COP 
+                        más 50 giros gratis en nuestras máquinas tragamonedas más populares. 
+                        ¡No dejes pasar esta increíble oportunidad de empezar ganando!
+                    </p>
+                    <a href="https://wa.me/57123456789?text=Hola! Me interesa el bono de bienvenida 100%" 
+                       class="whatsapp-btn" target="_blank">
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image promo2">
+                        <span style="background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
+                            💰 PROMOCIÓN 2 💰
+                        </span>
+                    </div>
+                    <h3 class="card-title">Cashback Semanal 20%</h3>
+                    <p class="card-description">
+                        Recupera el 20% de tus pérdidas cada semana. Nuestro programa de cashback 
+                        te devuelve dinero directo a tu cuenta todos los lunes. ¡Mientras más juegas, 
+                        más recuperas! Sin límites, sin complicaciones.
+                    </p>
+                    <a href="https://wa.me/57123456789?text=Hola! Quiero información sobre el cashback semanal" 
+                       class="whatsapp-btn" target="_blank">
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Juegos Populares Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">🔥 Juegos Populares 🔥</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image juego1">
+                        <span style="background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
+                            🎰 SLOTS DORADOS 🎰
+                        </span>
+                    </div>
+                    <h3 class="card-title">Mega Fortune Slots</h3>
+                    <p class="card-description">
+                        Las tragamonedas más emocionantes con jackpots progresivos que pueden 
+                        cambiar tu vida. Con gráficos espectaculares y múltiples líneas de pago, 
+                        cada giro puede ser el ganador. ¡Récord actual: $2.5 millones!
+                    </p>
+                    <a href="https://wa.me/57123456789?text=Hola! Quiero jugar Mega Fortune Slots" 
+                       class="whatsapp-btn" target="_blank">
+                        Jugar Ahora
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-image juego2">
+                        <span style="background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px;">
+                            🃏 BLACKJACK VIP 🃏
+                        </span>
+                    </div>
+                    <h3 class="card-title">Blackjack Premium</h3>
+                    <p class="card-description">
+                        Juega contra dealers profesionales en tiempo real. Mesas VIP con límites 
+                        altos para jugadores serios. Estrategia, emoción y grandes ganancias te 
+                        esperan en nuestras mesas exclusivas las 24 horas del día.
+                    </p>
+                    <a href="https://wa.me/57123456789?text=Hola! Quiero acceso al Blackjack Premium" 
+                       class="whatsapp-btn" target="_blank">
+                        Jugar Ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 GANAMOS Casino. Todos los derechos reservados.</p>
+        <p>Juega responsablemente. Solo para mayores de 18 años.</p>
+    </footer>
+
+    <script>
+        // Add fade-in animation when elements come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-in forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
